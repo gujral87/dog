@@ -1,0 +1,60 @@
+// @Author: Pawan Gujral
+// @Date:   14-07-18
+// @Email:  gujral87@gmail.com
+// @Last modified by:   codedoodler
+// @Last modified time: 2018-08-10T09:50:14-04:00
+
+.modal {
+  top: 50%;
+  left: 50%;
+  margin-left: -150px;
+  margin-top: -150px;
+  width: 300px;
+  position: absolute;
+  background: $primary_color;
+  color: $secondry-color;
+  padding: 15px;
+  z-index: 10;
+  display: none;
+
+  &.modal-lg {
+    width: 400px;
+    margin-left: -200px;
+    margin-top: -200px;
+  }
+
+  label {
+    margin-bottom: 10px;
+    display: inline-block;
+  }
+
+  .btn.btn-modal {
+    margin-top: 30px;
+  }
+
+  input,
+  select,
+  textarea {
+    background: rgba(0, 0, 0, 0.4);
+    border: none;
+    padding: 20px 10px;
+    color: $secondry-color;
+    margin: 0 0 10px;
+  }
+
+  #group_Input {
+    margin-top: 15px;
+  }
+
+  .form-group-two-col {
+    display: flex;
+
+    .input-group {
+      width: 49%;
+
+      &:first-child {
+        margin-right: 10px;
+      }
+    }
+  }
+}

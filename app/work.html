@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="theme-color" content="#3E376D" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>DOG - your Digital Organized Groups</title>
+  <link rel="icon" type="image/png" href="ui_assets/images/brand/favicon-96x96.png" sizes="96x96">
+  <!-- font awesome icons -->
+  <link rel="stylesheet" href="ui_assets/style/minify/fontawesome-all.min.css">
+  <!-- css files -->
+  <link rel="stylesheet" href="ui_assets/style/minify/main.css" />
+
+</head>
+
+<body class="animated fadeIn">
+
+  <!-- Header -->
+  <header>
+    <div class="branding">
+      <h1><img src="ui_assets/images/brand/logo_small.png" alt="DOG Logo" /> </h1>
+    </div>
+    <nav class="header-menu"></nav>
+    <button class="btn btn-icon" id="log_Out"><i class="fas fa-sign-out-alt"></i></button>
+
+  </header>
+  <!-- sections -->
+  <div class="wrapper">
+    <!-- Folder section  -->
+    <section id="folder_block">
+      <h3>Your <strong>Folder<small>(s)</small> </strong></h3>
+      <p class="help-message">
+        <img src="ui_assets/images/brand/logo_blue_back.png" alt="" />
+        <span>You can begin by clicking on add folder button below. </span>
+      </p>
+
+      <article class="folder_block_articles"></article>
+      <button type="button" class="btn btn-add btn-icon show_folder_modal"><i class="fas fa-plus"></i> Add Folder</button>
+    </section>
+
+    <!-- Task sections  -->
+    <section id="task_block">
+      <h3>Your <strong>Task<small>(s)</small></strong></h3>
+      <article class="task_block_articles">
+        <p class="help-message"><img src="ui_assets/images/brand/logo_blue_side.png" alt="" />
+          <span>Without task(s),<br/> it's just an empty folder!</span></p>
+        <ol id="task_list"></ol>
+      </article>
+
+      <button type="button" class="btn btn-add btn-icon show_task_modal"><i class="fas fa-plus"></i> Add Task</button>
+    </section>
+
+    <!-- Todo sections  -->
+    <section id="todo_Block">
+      <h3>Your <strong>TODO</strong> </h3>
+      <article class="todo_Block_Todo_List">
+        <input type="text" id="todo_Item_Add_Input" placeholder="Let's set some goals" />
+        <p class="help-message help-message-todo">
+          <img src="ui_assets/images/brand/logo_blue_back.png" alt="" />
+          <span>Make a list for this task, woof woof! </span></p>
+        <div class="todo_List_Block">
+          <ol id="todo_List"></ol>
+        </div>
+
+        <p class="todo_stats">Competed(<span class="todo_stats_complete">0</span>), Ongoing(<span class="todo_stats_ongoing">0</span>)</p>
+        <button type="button" class="btn btn-remove btn-icon remove_Completed_Todo"><i class="fas fa-trash-alt"></i></button>
+      </article>
+    </section>
+
+    <section id="notes_Block">
+      <h3>Your <strong>Note<small>(s)</small></strong> </h3>
+      <div class="notes_Block_Content">
+        <textarea id="notes_Add_Input" placeholder="Add notes for this task?"></textarea>
+        <p class="help-message">
+          <img src="ui_assets/images/brand/logo_blue_side_reverse.png" alt="" />
+          <span>Don't you've anything to remember?</span></p>
+        <ul id="notes_List"></ul>
+        <button type="button" class="btn btn-remove btn-icon remove_Notes"><i class="fas fa-trash-alt"></i></button>
+
+      </div>
+    </section>
+
+  </div>
+
+  <!-- secion ends -->
+
+  <!-- add Popup -->
+  <div class="folder_Modal modal animated slideInDown">
+    <button type="button" class="btn btn-icon btn-close "><i class="fa fa-times"></i></button>
+    <div class="form-group">
+      <!-- <label for="folder_Input">Folder Name</label> -->
+      <input type="text" name="folderInput" data-error="Please put some folder name" id="folder_Input" placeholder="Enter folder name" />
+    </div>
+    <div class="form-group">
+      <label>Select group for this folder</label>
+      <div class="label-group">
+        <span class="label-Value" data-label="personal">Personal</span>
+        <span class="label-Value" data-label="office">Office</span>
+        <span class="label-Value" data-label="idea">Idea</span>
+        <span class="label-Value" data-label="learning">Learning</span>
+        <span class="label-Value" data-label="travel">Travel</span>
+        <span class="label-Value" data-label="other">Other</span>
+      </div>
+      <input type="hidden" name="group_Input" data-error="Select group for this folder" id="group_Input" placeholder="Enter your own group name" />
+    </div>
+    <button type="submit" id="btn_add_folder" class="btn btn-modal" data-type="create">Create Folder</button>
+  </div>
+
+  <!-- add Popup -->
+  <div class="task_Modal modal modal-lg animated slideInDown">
+    <button type="button" class="btn btn-icon btn-close"><i class="fa fa-times"></i></button>
+
+    <div class="input-group">
+      <input type="text" name="taskInput" id="task_Input" placeholder="Enter task name" />
+    </div>
+    <div class="form-group-two-col">
+      <div class="input-group">
+        <label for="startDate_Input">Start Date (Optional)</label>
+        <input type="date" name="taskInput" id="startDate_Input" />
+
+      </div>
+      <div class="input-group">
+        <label for="endDate_Input">End Date (Optional)</label></label>
+        <input type="date" name="taskInput" id="endDate_Input" />
+      </div>
+    </div>
+
+    <div class="checkbox-group">
+      <input type="checkbox" id="type_Input"/>
+      <p>
+        Task done
+      </p>
+    </div>
+    <button type="submit" id="btn_add_task" class="btn btn-modal" data-type="create">Create Task</button>
+
+  </div>
+
+  <!-- script -->
+  <script src="libs/db/jsstore.min.js"></script>
+  <script src="libs/polyfill/polyfill.min.js"></script>
+  <script src="ext_assets/scripts/src/Db.js"></script>
+  <script src="ui_assets/scripts/src/application.js" defer></script>
+</body>
+
+</html>

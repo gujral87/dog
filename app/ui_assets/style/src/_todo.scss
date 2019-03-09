@@ -1,0 +1,135 @@
+// @Author: Pawan Gujral <pman>
+// @Date:   21-07-18
+// @Email:  gujral87@gmail.com
+// @Last modified by:   pman
+// @Last modified time: 21-07-18
+
+
+
+#todo_Block {
+  position: relative;
+  background-color: #fff;
+
+  .todo_Block_Todo_List {
+    display: none;
+    position: relative;
+    height: calc(100vh - 100px);
+  }
+
+  .todo_Block_Todo_List_Users {
+    margin: 15px 0;
+    display: flex;
+    justify-content: flex-end;
+    ul {
+      margin:0;
+      padding: 0;
+      li {
+        list-style: none;
+        display: inline-block;
+        border-radius: 50%;
+        margin-left: -10px;
+        img {
+          max-width:35px;
+        }
+      }
+    }
+  }
+
+  .notify {
+    // display: none;
+    margin-top : 50px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -18px;
+    margin-left: -40%;
+    width: 100%;
+    max-width: 80%;
+  }
+
+  #todo_Item_Add_Input {
+    border-radius: 30px;
+    padding: 10px 15px;
+    margin: 20px 0;
+
+  }
+
+  ol {
+    margin:0;
+    padding: 0;
+    height: calc(100vh - 230px);
+    overflow: auto;
+    padding: 0 15px;
+    li {
+      background: transparent;
+      list-style: none;
+      padding: 0;
+      margin-bottom: 0;
+      display: flex;
+      align-items: center;
+      border-radius: 0;
+      padding: 0 5px;
+      border-bottom: 1px dashed $group-color;
+      span {
+        display: inline-block;
+        padding-top: 0;
+        width: 15px;
+        cursor: pointer;
+        text-align: center;
+        height: auto;
+        visibility: visible;
+        &:before {
+          content: "\f0c8";
+          font-family: $icon-family;
+          color: $group-color;
+        }
+      }
+      p {
+        width: calc(100% - 40px);
+        margin-bottom: 0;
+        border-radius: 30px;
+        padding: 15px 10px;
+        text-transform: none;
+        color: #4d4d4d;
+      }
+      em {
+        display: none;
+        width: 15px;
+        font-style: normal;
+        text-align: center;
+        cursor: pointer;
+        color: $error-color;
+        &:before {
+          content: "\f2ed";
+          font-family: $icon-family;
+        }
+      }
+      &:hover {
+        em {
+          display: block;
+        }
+      }
+      &.complete {
+        border-color: $success-color;
+        span {
+          &:before {
+            content: "\f14a";
+            color: $success-color;
+          }
+        }
+        p {
+          text-decoration: line-through;
+          color: $success-color;
+        }
+      }
+    }
+  }
+
+  .todo_stats {
+    position: absolute;
+    bottom: 15px;
+    left:0;
+    margin-bottom: 0;
+    color: #cacaca;
+  }
+}

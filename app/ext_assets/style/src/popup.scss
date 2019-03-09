@@ -1,0 +1,29 @@
+@import "fonts";
+@import "common";
+
+ body {
+   width: 400px;
+ }
+
+.stat_Block {
+  background: $primary_color;
+  color: $secondry-color;
+  ol {
+    display: flex;
+    margin:0;
+    padding:0;
+
+    li {
+      list-style: none;
+      width: 50%;
+      p {
+        font-size: 24px;
+        text-align: center;
+        span {
+          font-size: 12px;
+          display: block;
+        }
+      }
+    }
+  }
+}

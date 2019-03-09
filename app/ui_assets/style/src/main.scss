@@ -1,0 +1,242 @@
+// @Author: Pawan Gujral
+// @Date:   14-07-18
+// @Email:  gujral87@gmail.com
+// @Last modified by:   codedoodler
+// @Last modified time: 2018-08-11T04:03:35-04:00
+@import 'common';
+@import "fonts";
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 3fr 1fr;
+  grid-auto-rows: calc(100vh - 50px);
+
+  section {
+    padding: 15px;
+    position: relative;
+
+    &:nth-child(1) {
+      background: #f9f9f9;
+    }
+
+    &:nth-child(2) {
+      .show_task_modal {
+        display: none;
+      }
+    }
+
+    &:nth-child(3) {
+      border-right: 1px solid #ececec;
+      border-left: 1px solid #ececec;
+    }
+
+    .block_Top_Bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  article {
+    &.folder_block_articles,
+    &.task_block_articles {
+      height: calc(100% - 75px);
+      overflow: auto;
+      position: relative;
+    }
+
+    ol {
+      margin: 0 0 10px;
+      padding: 0;
+
+      li {
+        list-style: none;
+        display: block;
+        cursor: pointer;
+        padding: 0 0 0 10px;
+        text-transform: capitalize;
+        font-weight: 300;
+        color: #666;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+
+        &.active {
+          font-weight: 800;
+          color: $group-color;
+        }
+
+        span {
+          display: inline-block;
+          width: 20px;
+          height: 20px;
+          visibility: hidden;
+          font-weight: 400;
+          color: $error-color;
+          cursor: pointer;
+          padding-top: 8px;
+          margin-right: 5px;
+
+          &:last-child {
+            margin-right: 0;
+          }
+
+          &:before {
+            content: "\f2ed";
+            font-family: $icon-family;
+          }
+
+          &.edit_Folder,
+          &.edit_Task {
+            color: $info-color;
+
+            &:before {
+              content: "\f044";
+              font-family: $icon-family;
+            }
+          }
+
+          &.delete_Task {
+            color: $error-color;
+
+            &:before {
+              content: "\f2ed";
+              font-family: $icon-family;
+            }
+          }
+        }
+
+        p {
+          width: calc(100% - 50px);
+          margin-bottom: 0;
+          padding-top: 8px;
+        }
+
+        small {
+          display: block;
+          font-size: 75%;
+          padding: 5px 0 8px;
+          color: #cacaca;
+          font-weight: 300;
+          width: 100%;
+        }
+
+        &:hover {
+          span {
+            visibility: visible;
+          }
+        }
+      }
+    }
+  }
+
+  .editable_block {
+    height: calc(60vh - 30px);
+    background: #fff;
+
+    &:focus {
+      outline: none;
+      box-shadow: none;
+    }
+  }
+}
+
+#folder_block {
+  padding: 15px 0;
+
+  h3,
+  h4 {
+    padding: 0 15px;
+  }
+
+  ol {
+    li {
+      padding-left: 25px;
+
+      p {
+        &:before {
+          content: "\f07b";
+          font-family: $icon-family;
+          margin-right: 5px;
+        }
+      }
+
+      &.active {
+        background: #fff;
+
+        p {
+          &:before {
+            content: "\f07c";
+            font-family: $icon-family;
+          }
+        }
+      }
+    }
+  }
+}
+
+#task_block {
+  ol {
+    li {
+      border-bottom: 1px dashed #eee;
+
+      p {
+        padding: 8px 0;
+
+        &:before {
+          content: "\f0ae";
+          font-family: $icon-family;
+          margin-right: 5px;
+          font-weight: bold;
+        }
+      }
+
+      small {
+        display: flex;
+        justify-content: space-between;
+        padding-top: 0;
+        em {
+          font-size: 10px;
+          font-style: normal;
+        }
+      }
+
+      &.attention {
+        p {
+          &:before {
+            content: "\f06a";
+            font-family: $icon-family;
+            color: $error-color;
+          }
+        }
+
+        small {
+          em {
+            &:last-child {
+              color: $error-color;
+            }
+          }
+        }
+      }
+
+      &.Completed {
+        p {
+          &:before {
+            content: "\f46c";
+            font-family: $icon-family;
+            color: $success-color;
+          }
+        }
+      }
+
+      span {
+        padding: 0;
+      }
+    }
+  }
+}
+@import 'modal';
+@import 'todo';
+@import 'notes';
+@import 'auth';
+@import 'animate';

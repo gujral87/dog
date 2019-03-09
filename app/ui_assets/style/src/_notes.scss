@@ -1,0 +1,63 @@
+#notes_Block {
+  .notes_Block_Content {
+    display: none;
+    position: relative;
+    height: calc(100vh - 100px);
+  }
+
+  textarea {
+    border-radius: 6px;
+    padding: 10px 15px;
+    margin: 20px 0;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+    height: calc(100vh - 230px);
+    overflow: auto;
+
+    li {
+      list-style: none;
+      background: #FFF2B5;
+      color: #222;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      border-radius: 6px;
+
+      p {
+        width: calc(100% - 30px);
+        text-transform: none;
+        padding: 15px;
+
+        span {
+          padding: 0 5px;
+          border-radius: 6px;
+          background: $primary_color;
+          color:  $secondry-color;
+        }
+      }
+
+      em {
+        font-style: normal;
+        display: none;
+        width: 15px;
+        text-align: center;
+        cursor: pointer;
+        color: #fa5252;
+
+        &:before {
+          content: "\f2ed";
+          font-family: $icon-family;
+        }
+      }
+
+      &:hover {
+        em {
+          display: block;
+        }
+      }
+    }
+  }
+}
